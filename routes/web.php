@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'tag@select')->name('home');
 Route::get('/tags/', 'tag@select')->name('tagView');
 Route::post('/tags/create/', 'tag@store')->name('tagCreate');
 Route::delete('/tags/delete/', 'tag@delete')->name('tagDelete');
@@ -27,3 +26,9 @@ Route::get('/linkedin/callback', 'User@linkedin')->name('linkedinReturn');
 Route::get('/users/compagny/', 'UserEntreprises@get')->name('getUserEntreprises');
 Route::get('/users/compagny/add/', 'UserEntreprises@add')->name('addUserEntreprises');
 Route::post('/users/compagny/add/', 'UserEntreprises@store')->name('storeUserEntreprises');
+
+
+
+Route::get('/communaute/','Commaunaute@index')->name('communaute');
+Route::get('/entreprise/','Entreprise@index')->name('entreprise');
+Route::get('/','Home@index')->name('home');

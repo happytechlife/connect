@@ -1,0 +1,111 @@
+@font-face {
+   font-family: volte-face;
+   src: url(../font/Volte-Regular.otf);
+}
+@font-face {
+   font-family: volte-face-light;
+   src: url(../font/Volte-Light.otf);
+}
+@font-face {
+   font-family: volte-face-medium;
+   src: url(../font/Volte-Medium.otf);
+}
+
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+/* Navbar */
+
+.logo{
+	width: 200px;
+	height: auto !important;
+}
+
+.navigation_head{
+	padding: 15px;
+	background-color: #f8f8f8 !important;
+	margin-bottom: 0px !important;
+	border: 0px !important;
+
+}
+
+.searchBar{
+	margin-top: 10px;
+}
+
+.searchButton{
+	color: #eeb33f !important;
+}
+
+
+.profil{
+	font-size: 13px;
+	font-family: volte-face-medium;
+
+}
+
+
+
+
+/* Page : Home */
+
+
+
+.master_container{
+	padding: 0px !important;
+	margin: 0px !important;
+}
+.wrapper_global{
+	background-color: #212c35;
+}
+
+.wrap_text{
+	padding: 35px;
+}
+
+.title_wrap{
+	font-size: 25px;
+	font-family: volte-face-medium;
+	letter-spacing: 2px;
+	text-align: justify;
+	margin-bottom: 25px;
+	color: white;
+}
+
+
+.text_wrap{
+	font-size: 15px;
+	font-family: volte-face-light;	
+	line-height: 30px;
+	text-align: justify;
+	color: white;
+}
+.firstWrap{
+	margin-bottom: 20px;
+}
+
+.container_map{
+	padding: 0px !important;
+	height: 892px;
+	overflow: hidden;
+}
+
+
+.content_map{
+	
+	height: 100%;
+	width: auto;
+	
+}
+
+
+
+
+
+
+
+
+
