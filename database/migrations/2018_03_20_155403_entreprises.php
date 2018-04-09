@@ -18,7 +18,9 @@ class Entreprises extends Migration
             $table->string('description');
             $table->string('slug')->unique();
             $table->string('name');
+            $table->integer('community');
             $table->foreign('id')->references('id')->on('users');
+            $table->foreign('community')->references('id')->on('community');
             $table->timestamps();
         });
     }

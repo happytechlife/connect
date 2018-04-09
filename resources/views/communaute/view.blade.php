@@ -16,22 +16,18 @@
         <div class="WrapText">
             <div class="col-lg-6 col-sm-6 col-md-6">
                 <div class="col-lg-9">
-                    <h1 class="title_wrap_black">COMMUNAUTE DE PARIS</h1>
+                    <h1 class="title_wrap_black">COMMUNAUTE DE {{$communaute->name}}</h1>
                 </div>
                 <div class="wrapLink col-lg-3">
                     <a class="rejoindre" href="#">REJOINDRE</a>
                 </div>
 
                 <div class="col-lg-8">
-                    <p class="text_wrap_black">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum
-                        et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna
-                        quaerebatur industria, et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius
-                        ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum
-                        insimulasset promittentes armorum</p>
+                    <p class="text_wrap_black">{{$communaute->description}}</p>
                 </div>
 
                 <div class="col-lg-12">
-                    <p class="title_wrap_black">QU'Y A T'IL A PARIS</p>
+                    <p class="title_wrap_black">QU'Y A T'IL A {{$communaute->name}}</p>
                 </div>
 
                 <div class="col-lg-2 categorie">

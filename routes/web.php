@@ -27,8 +27,15 @@ Route::get('/users/compagny/', 'UserEntreprises@get')->name('getUserEntreprises'
 Route::get('/users/compagny/add/', 'UserEntreprises@add')->name('addUserEntreprises');
 Route::post('/users/compagny/add/', 'UserEntreprises@store')->name('storeUserEntreprises');
 
-
-
-Route::get('/communaute/','Commaunaute@index')->name('communaute');
-Route::get('/entreprise/','Entreprise@index')->name('entreprise');
+Route::get('/entreprise/{slug}/','entreprise@view')->name('entreprise.view');
+Route::get('/entreprises/','entreprise@index')->name('entreprises');
+Route::post('/entreprise/new/','entreprise@store')->name('entreprise.new');
+Route::put('/entreprise/update/','entreprise@update')->name('entreprise.update');
+Route::delete('/entreprise/delete/','entreprise@delete')->name('entreprise.delete');
 Route::get('/','Home@index')->name('home');
+
+Route::get('/communaute/{slug}/','Commaunaute@view')->name('community.view');
+Route::get('/communautes/','Commaunaute@index')->name('communities');
+Route::post('/communaute/new/','Commaunaute@store')->name('community.new');
+Route::put('/communaute/update/','Commaunaute@update')->name('community.update');
+Route::delete('/communaute/delete/','Commaunaute@delete')->name('community.delete');

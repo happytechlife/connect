@@ -8,7 +8,7 @@ use Cocur\Slugify\Slugify;
 
 class tag extends Controller
 {
-    public function select(Request $request){
+    public function select(){
 
         $tags = DB::table('tags')->get();
 
@@ -23,7 +23,7 @@ class tag extends Controller
         $slugify = new Slugify();
         $slug = $slugify->slugify($tag,'-');
 
-        $tags = DB::table('tags')->insert([
+        DB::table('tags')->insert([
             'slug' => $slug,
             'tag' => $tag,
         ]);
@@ -40,9 +40,8 @@ class tag extends Controller
         $slugify = new Slugify();
         $slug = $slugify->slugify($tag,'-');
 
-        $tags = DB::table('tags')->update([
+         DB::table('tags')->where('id',$id)->update([
             'slug' => $slug,
-            'id' => $id,
             'tag' => $tag,
         ]);
 
@@ -52,7 +51,7 @@ class tag extends Controller
     public function delete(Request $request){
         $id = $request->input('id');
 
-        $tags = DB::table('tags')->delete([
+        DB::table('tags')->delete([
             'id' => $id,
         ]);
 
