@@ -20,6 +20,7 @@ class Entreprises extends Migration
             $table->string('name');
             $table->integer('community');
             $table->foreign('id')->references('id')->on('users');
+            $table->foreign('id')->references('id_entreprise')->on('tags_link');
             $table->foreign('community')->references('id')->on('community');
             $table->timestamps();
         });

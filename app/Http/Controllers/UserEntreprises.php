@@ -20,7 +20,9 @@ class UserEntreprises extends Controller
     public function add(){
         $linkedIn=new LinkedIn('86dvcmdnpjqfew', 'go15zYDt4rtyvdb5');
         if ($linkedIn->isAuthenticated()) {
-            $company =$linkedIn->get('v1/companies?format=json&is-company-admin=true');
+			
+			
+            $company =$linkedIn->get('v1/companies:(id,name,ticker,description)?format=json&is-company-admin=true');
             dd($company);
         }else{
             dd('failed');

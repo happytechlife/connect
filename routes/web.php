@@ -22,6 +22,7 @@ Route::put('/tags/update/', 'tag@update')->name('tagUpdate');
 
 Route::get('/linkedin/redirect', 'User@login')->name('login');
 Route::get('/linkedin/callback', 'User@linkedin')->name('linkedinReturn');
+Route::get('/logout/', 'User@logout')->name('logout');
 
 Route::get('/users/compagny/', 'UserEntreprises@get')->name('getUserEntreprises');
 Route::get('/users/compagny/add/', 'UserEntreprises@add')->name('addUserEntreprises');

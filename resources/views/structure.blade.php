@@ -36,7 +36,12 @@
         </div>
 
         <ul class="nav navbar-nav">
-            <li><a class="profil" href="#">PROFIL</a></li>
+
+            @if(Auth::check())
+                <li><a class="profil" href="{{route('logout')}}">Se deconnecter</a></li>
+                @else
+                <li><a class="profil" href="{{route('login')}}">SE CONNECTER</a></li>
+                @endif
         </ul>
     </div>
 
