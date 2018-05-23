@@ -17,6 +17,7 @@ class Tags extends Migration
             $table->increments('id');
             $table->string('slug')->unique();
             $table->string('tag')->unique();
+            $table->mediumText('description');
             $table->timestamps();
         });
     }

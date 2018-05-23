@@ -1,0 +1,153 @@
+.community .description-textarea {
+  width: 100%;
+  padding: 10px 17px;
+  box-sizing: border-box;
+  height: auto;
+  text-align: justify;
+  text-align-last: left;
+  margin: 30px 0;
+  position: relative; }
+  .community .description-textarea .value,
+  .community .description-textarea .placeholder {
+    width: 100%;
+    height: auto;
+    line-height: 22px;
+    font-size: 20px;
+    color: #4b4b4b;
+    text-align: justify;
+    text-align-last: left;
+    outline: none; }
+  .community .description-textarea .placeholder {
+    opacity: 0.7;
+    padding: 10px 17px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: 0.3s 0s opacity; }
+  .community .description-textarea.hide-placeholder .placeholder {
+    opacity: 0; }
+.community .coord {
+  margin-top: 20px;
+  position: relative; }
+  .community .coord label {
+    line-height: 22px;
+    font-size: 20px;
+    color: #4b4b4b;
+    width: 120px;
+    display: inline-block;
+    text-align: left; }
+  .community .coord input {
+    line-height: 22px;
+    font-size: 20px;
+    color: #4b4b4b;
+    width: 120px;
+    display: inline-block;
+    text-align: left; }
+.community .container-img {
+  background-color: #eeeeee; }
+  .community .container-img input {
+    opacity: 0;
+    width: 100%;
+    height: 100%; }
+  .community .container-img input,
+  .community .container-img .border {
+    position: absolute;
+    left: 0;
+    top: 0; }
+  .community .container-img .border {
+    border: 1px solid #4b4b4b;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px); }
+    .community .container-img .border span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: auto;
+      height: auto;
+      display: inline-block;
+      border-bottom: 1px solid #4b4b4b;
+      border-right: 1px solid #4b4b4b;
+      color: #4b4b4b;
+      padding: 3px 7px;
+      line-height: 17px;
+      font-size: 15px; }
+
+.list {
+  min-height: 100%;
+  background-color: #eeeeee; }
+  .list h1 {
+    margin: 75px 0 30px 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    color: #4b4b4b;
+    text-align: left; }
+  .list tbody,
+  .list thead,
+  .list tr,
+  .list table {
+    width: 100%;
+    height: auto; }
+  .list thead {
+    background-color: #eda056; }
+    .list thead,
+    .list thead tr,
+    .list thead td {
+      line-height: 40px;
+      text-align: center;
+      color: #4b4b4b; }
+  .list table {
+    border-collapse: collapse;
+    border: 1px solid #eda056; }
+  .list tbody tr {
+    border-top: 1px solid #eda056; }
+    .list tbody tr td {
+      padding: 7px 3px;
+      text-align: center; }
+      .list tbody tr td.left {
+        text-align: justify;
+        text-align-last: left; }
+      .list tbody tr td a {
+        display: inline-block;
+        margin: 0 5px; }
+    .list tbody tr:nth-child(2n) {
+      background-color: rgba(237, 160, 86, 0.5); }
+  .list .edit-tag,
+  .list .new-tag {
+    text-align: left; }
+    .list .edit-tag.new-tag,
+    .list .new-tag.new-tag {
+      margin-bottom: 50px; }
+    .list .edit-tag.edit-tag,
+    .list .new-tag.edit-tag {
+      margin-bottom: 20px; }
+    .list .edit-tag a,
+    .list .new-tag a {
+      display: inline-block;
+      margin: 0 15px;
+      line-height: 20px;
+      font-size: 17px;
+      text-decoration: underline;
+      color: #4b4b4b; }
+    .list .edit-tag input,
+    .list .new-tag input {
+      width: 300px;
+      line-height: 20px;
+      font-size: 17px;
+      padding: 7px 15px;
+      box-sizing: border-box;
+      display: inline-block;
+      color: #4b4b4b; }
+    .list .edit-tag button,
+    .list .new-tag button {
+      width: 100px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 15px;
+      padding: 7px 15px;
+      display: inline-block;
+      background-color: #eda056;
+      color: #4b4b4b; }
+
+/*# sourceMappingURL=admin.css.map */

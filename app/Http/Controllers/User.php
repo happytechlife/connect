@@ -28,11 +28,9 @@ class User extends Controller
      */
     public function login(){
 
-        $linkedIn=new LinkedIn('86dvcmdnpjqfew', 'go15zYDt4rtyvdb5');
+        $linkedIn=new LinkedIn('782oyyvd2grwmn', '2oaPD8eTY3pQqVYS');
 
         if ($linkedIn->isAuthenticated()) {
-            //we know that the user is authenticated now. Start query the API
-
             $user=$linkedIn->get('v1/people/~:(firstName,lastName,email-address,id)');
 
             return $this->storeOrLogin($user);

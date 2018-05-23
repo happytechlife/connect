@@ -4,6 +4,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <link rel="stylesheet" href="{{asset('css/admin.css')}}">
 
         <title>@yield('title')</title>
         @yield('head')
@@ -11,8 +12,8 @@
     <body class="@yield('page_class')">
         @include('templates.includes.navbar')
         @yield('content')
-        @include('templates.includes.footer')
         <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/app.js')}}"></script>
+        <script src="{{asset('js/admin.js')}}"></script>
     </body>
 </html>

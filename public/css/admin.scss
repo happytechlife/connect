@@ -1,0 +1,190 @@
+.community{
+    .description-textarea{
+        width: 100%;
+        padding: 10px 17px;
+        box-sizing: border-box;
+        height: auto;
+        text-align: justify;
+        text-align-last: left;
+        margin: 30px 0;
+        position:relative;
+
+        .value,
+        .placeholder{
+            width: 100%;
+            height: auto;
+            line-height: 22px;
+            font-size: 20px;
+            color: rgb(75, 75, 75);
+            text-align: justify;
+            text-align-last: left;
+            outline:none;
+        }
+
+        .placeholder{
+            opacity:0.7;
+            padding:10px 17px;
+            box-sizing: border-box;
+            position:absolute;
+            left:0;
+            top:0;
+            transition:0.3s 0s opacity;
+        }
+        &.hide-placeholder{
+            .placeholder{
+                opacity:0;
+            }
+        }
+    }
+
+    .coord{
+        margin-top:20px;
+        position:relative;
+        label{
+            line-height: 22px;
+            font-size: 20px;
+            color: rgb(75, 75, 75);
+            width:120px;
+            display:inline-block;
+            text-align:left;
+        }
+        input{
+            line-height: 22px;
+            font-size: 20px;
+            color: rgb(75, 75, 75);
+            width:120px;
+            display:inline-block;
+            text-align:left;
+        }
+    }
+
+    .container-img{
+        background-color:#eeeeee;
+        input{
+            opacity:0;
+            width:100%;
+            height:100%;
+        }
+        input,
+        .border{
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        .border{
+            border:1px solid rgb(75,75,75);
+            width:calc(100% - 2px);
+            height:calc(100% - 2px);
+            span{
+                position:absolute;
+                left:0;
+                top:0;
+                width:auto;
+                height:auto;
+                display:inline-block;
+                border-bottom:1px solid rgb(75,75,75);
+                border-right:1px solid rgb(75,75,75);
+                color:rgb(75,75,75);
+                padding:3px 7px;
+                line-height:17px;
+                font-size:15px;
+            }
+        }
+    }
+}
+
+.list{
+    min-height:100%;
+    background-color:#eeeeee;
+    h1{
+        margin:75px 0 30px 0;
+        padding:0;
+        width:100%;
+        height:auto;
+        color:rgb(75,75,75);
+        text-align:left;
+    }
+
+    tbody,
+    thead,
+    tr,
+    table{
+        width:100%;
+        height:auto;
+    }
+
+    thead{
+        background-color: #eda056;
+
+        &,
+        tr,
+        td{
+            line-height:40px;
+            text-align:center;
+            color:rgb(75,75,75);
+        }
+    }
+    table{
+        border-collapse: collapse;
+        border:1px solid #eda056;
+    }
+    tbody{
+        tr{
+            border-top:1px solid #eda056;
+            td{
+                padding:7px 3px;
+                text-align:center;
+                &.left{
+                    text-align:justify;
+                    text-align-last:left;
+                }
+                a{
+                    display:inline-block;
+                    margin:0 5px;
+                }
+            }
+            &:nth-child(2n){
+                background-color: rgba(237, 160, 86,0.5);
+            }
+        }
+    }
+
+    .edit-tag,
+    .new-tag{
+        text-align:left;
+        &.new-tag{
+            margin-bottom:50px;
+        }
+        &.edit-tag{
+            margin-bottom:20px;
+        }
+        a{
+            display:inline-block;
+            margin:0 15px;
+            line-height:20px;
+            font-size: 17px;
+            text-decoration: underline;
+            color:rgb(75,75,75);
+        }
+
+        input{
+            width:300px;
+            line-height:20px;
+            font-size: 17px;
+            padding:7px 15px;
+            box-sizing: border-box;
+            display:inline-block;
+            color:rgb(75,75,75);
+        }
+        button{
+            width:100px;
+            text-align:center;
+            line-height:20px;
+            font-size: 15px;
+            padding:7px 15px;
+            display:inline-block;
+            background-color: #eda056;
+            color:rgb(75,75,75);
+        }
+    }
+}
