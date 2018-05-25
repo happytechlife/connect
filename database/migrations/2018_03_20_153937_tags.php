@@ -18,6 +18,7 @@ class Tags extends Migration
             $table->string('slug')->unique();
             $table->string('tag')->unique();
             $table->mediumText('description');
+            $table->string('file_name');
             $table->timestamps();
         });
     }

@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Support\Facades\Response;
 
 Route::get('/','View@home')->name('home');
 
@@ -37,3 +38,40 @@ Route::post('/admin/tag/add/','AdminTags@addRequest')->name('admin.tag.add.reque
 Route::get('/admin/tag/edit/{slug}/','AdminTags@edit')->name('admin.tag.edit');
 Route::post('/admin/tag/edit/{slug}/','AdminTags@editRequest')->name('admin.tag.edit.request');
 Route::get('/admin/tag/delete/{id}/','AdminTags@delete')->name('admin.tag.delete');
+
+
+function getImageContentType($file){
+    $mime = exif_imagetype($file);
+
+    if ($mime === IMAGETYPE_JPEG)
+        $contentType = 'image/jpeg';
+
+    elseif ($mime === IMAGETYPE_GIF)
+        $contentType = 'image/gif';
+
+    else if ($mime === IMAGETYPE_PNG)
+        $contentType = 'image/png';
+
+    else
+        $contentType = false;
+
+    return $contentType;
+}
+Route::get('img/community/{type}/{file}', function($type,$file) {
+    $filePath = storage_path().'/app/public/community/'.$type.'/'.$file;
+
+    if ( (!$mimeType = getImageContentType($filePath)) or !file_exists($filePath)){
+        return Response::make("File does not exist.", 404);
+    }
+    $fileContents = file_get_contents($filePath);
+    return Response::make($fileContents, 200, array('Content-Type' => $mimeType));
+})->name('community.img');
+Route::get('img/tag/{file}', function($file) {
+    $filePath = storage_path().'/app/public/tag/'.$file;
+
+    if ( (!$mimeType = getImageContentType($filePath)) or !file_exists($filePath)){
+        return Response::make("File does not exist.", 404);
+    }
+    $fileContents = file_get_contents($filePath);
+    return Response::make($fileContents, 200, array('Content-Type' => $mimeType));
+})->name('tag.img');

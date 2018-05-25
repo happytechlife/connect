@@ -1,5 +1,5 @@
-<footer id="footer">
-    <div class="container-col-3 width-1200" style="display:inline-block;">
+<footer>
+    <div class="container-col-3 width-1200 footer-col-3" style="display:inline-block;">
         <div class="col">
             <div class="padding-col width-400">
                 <h4>A propos</h4>
@@ -7,18 +7,18 @@
             </div>
         </div>
         <div class="col padding-col">
-            <a href=""><h4 data-target="footer" class="margin-middle">Plan du site</h4></a>
+            <a href=""><h4 data-target="footer">Plan du site</h4></a>
         </div>
         <div class="col padding-col">
-            <div class="margin-middle" data-target="footer">
+            <div>
                 <a class="social-logo">
-                    <img src="" />
+                    <img src="{{asset('img/facebook.png')}}" alt="Page Facebook" />
                 </a>
                 <a class="social-logo">
-                    <img src="" />
+                    <img src="{{asset('img/twitter.png')}}" alt="Page Twitter" />
                 </a>
                 <a class="social-logo">
-                    <img src="" />
+                    <img src="{{asset('img/linkedin.png')}}" alt="Page Linkedin"/>
                 </a>
             </div>
         </div>

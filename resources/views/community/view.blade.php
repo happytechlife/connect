@@ -5,7 +5,7 @@
 @section('content')
     <section class="container-col-2 break-1200" id="col-container">
         <div class="col container-img" id="container-cover">
-            <img class="cover-img" src="{{asset('img/exemple.jpg')}}" />
+            <img class="cover-img" alt="Image de la communauté de {{$community->name}}" src="{{route('community.img',['type' => 'big','file' => $community->file_name])}}" />
         </div>
         <div class="col">
             <div class="width-900">

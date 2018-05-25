@@ -15,6 +15,7 @@ class Community extends Migration
         Schema::create('community', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('file_name');
             $table->float('longitude');
             $table->float('latitude');
             $table->mediumText('description');

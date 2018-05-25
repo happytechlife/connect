@@ -8,7 +8,10 @@ use Illuminate\Support\Facades\DB;
 class View extends Controller
 {
     public static function home(){
-        return view('home');
+
+        $communities = DB::table('community')->get();
+
+        return view('home',['communities' => $communities]);
     }
 
     public static function community($slug){

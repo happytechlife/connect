@@ -2,7 +2,7 @@
     <div class="width-1200">
         <div class="left">
             <a href="{{route('home')}}" class="container-logo">
-                <img src="{{asset('img/logo.png')}}" class="logo" />
+                <img src="{{asset('img/menu-logo.png')}}" class="logo" />
             </a>
         </div>
         <form class="middle">
