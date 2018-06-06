@@ -7,38 +7,40 @@
 
 @extends('templates.app')
 
-@section('page_class','entreprise-add')
+@section('page_class','entreprise-profil')
 
 @section('content')
-    <form autocomplete="off" class="container-col-2 break-1200" enctype="multipart/form-data" id="col-container" method="POST">
+    <div class="container-col-2 break-1200" id="col-container">
         <div class="col container-img" id="container-cover">
             <div id="map"></div>
         </div>
         <div class="col">
             <div class="width-900">
-                <h1 class="title">Créer une entreprise</h1>
-                <div class="linkedin-entreprises container-col-3">
-                    <div class="col">
-                        <a>Test</a>
+
+                @if (count($linkedinEntreprises) > 0)
+                    <h1 class="title">Créer une entreprise</h1>
+                    <div class="linkedin-entreprises container-col-3">
+                        @foreach($linkedinEntreprises as $entreprise)
+                            <div class="col">
+                                <a href="{{route('entreprise.add',['id' => $entreprise['id']])}}">{{$entreprise['name']}}</a>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="col">
-                        <a>Test</a>
+                @endif
+
+                @if (count($myEntreprises) > 0)
+                    <h1 class="title">Modifier mes entreprises</h1>
+                    <div class="linkedin-entreprises container-col-3">
+                        @foreach($myEntreprises as $entreprise)
+                            <div class="col">
+                                <a href="{{route('entreprise.edit',['slug' => $entreprise->slug])}}">{{$entreprise->name}}</a>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="col">
-                        <a>Test</a>
-                    </div>
-                    <div class="col">
-                        <a>Test</a>
-                    </div>
-                    <div class="col">
-                        <a>Test</a>
-                    </div>
-                </div>
+                @endif
             </div>
         </div>
-
-        {{ csrf_field() }}
-    </form>
+    </div>
     <script src="//developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script async defer src="//maps.googleapis.com/maps/api/js?key=AIzaSyCYe_0CiU5xTIZ9f3svSZEaaPUjBb0CHpw&callback=initMap"></script>
     <script>

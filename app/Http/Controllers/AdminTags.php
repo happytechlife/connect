@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminTags extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('Admin');
+    }
+
     public function add(){
         return view('admin.tags.add');
     }
@@ -58,14 +63,14 @@ class AdminTags extends Controller
     public function editRequest($slug,Request $request){
 
         $tag = $request->input('tag');
-        $name = $request->input('name');
+        $name = $request->input('tag');
         $description = $request->input('description');
 
         $slugify = new Slugify();
         $newSlug = $slugify->slugify($tag,'-');
 
         $update = [
-            'name' => $name,
+            'tag' => $name,
             'slug' => $newSlug,
             'description' => $description
         ];

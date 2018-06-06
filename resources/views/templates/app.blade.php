@@ -12,6 +12,9 @@
         @include('templates.includes.navbar')
         @yield('content')
         @include('templates.includes.footer')
+        <script>
+            const REQUEST = '{{route('search')}}';
+        </script>
         <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/app.js')}}"></script>
         @yield('script')

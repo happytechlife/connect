@@ -5,9 +5,9 @@
     $lat = [];
 @endphp
 
-@extends('templates.admin')
+@extends('templates.app')
 
-@section('page_class','community')
+@section('page_class','tags-edit')
 
 @section('content')
     <form autocomplete="off" class="container-col-2 break-1200" id="col-container" method="POST" action="{{route('admin.tag.edit.request',['slug' => $tag->slug])}}">
@@ -18,7 +18,7 @@
                     <div class="border">
                         <span>Ajouter une image</span>
                     </div>
-                    <input type="file" name="picture" id="input-file-tag" />
+                    <input type="file" name="picture" id="input-file" />
                 </div>
             </div>
         </div>

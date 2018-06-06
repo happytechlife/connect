@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Cocur\Slugify\Slugify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 use Socialite;
 use Happyr\LinkedIn\LinkedIn as LinkedIn;
 
@@ -21,21 +24,31 @@ class User extends Controller
         $this->middleware('auth',['except' => ['login','linkedin']]);
     }
 
+    private function getLinkedIn(){
+        return (new LinkedIn('782oyyvd2grwmn', '2oaPD8eTY3pQqVYS'));
+    }
+
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
     public function login(){
+        $user = $this->linkedInProfil();
+        if (is_array($user)){
+            $this->storeOrLogin($user);
 
-        $linkedIn=new LinkedIn('782oyyvd2grwmn', '2oaPD8eTY3pQqVYS');
+            return redirect()->route('home');
+        }else{
+            return $user;
+        }
+    }
+
+    private function linkedInProfil(){
+        $linkedIn= $this->getLinkedIn();
 
         if ($linkedIn->isAuthenticated()) {
-            $user=$linkedIn->get('v1/people/~:(firstName,lastName,email-address,id)');
-
-            return $this->storeOrLogin($user);
-        }elseif ($linkedIn->hasError()) {
-            return redirect()->route('home');
+            return $linkedIn->get('v1/people/~:(firstName,lastName,email-address,id)');
         }else{
             return Redirect::to($linkedIn->getLoginUrl());
         }
@@ -46,10 +59,11 @@ class User extends Controller
 
         if (count($table) == 0){
             DB::table('users')->insert([
-               'linkedin' => $user['id'],
-               'lastName' => $user['firstName'],
-               'firstName' => $user['lastName'],
-               'email' => $user['emailAddress'],
+                'admin' => false,
+                'linkedin' => $user['id'],
+                'lastName' => $user['firstName'],
+                'firstName' => $user['lastName'],
+                'email' => $user['emailAddress'],
             ]);
 
             $id = intval(DB::getPdo()->lastInsertId());
@@ -65,8 +79,35 @@ class User extends Controller
         }
 
         Auth::loginUsingId($id,true);
+    }
 
-        return redirect()->route('home');
+    public function entrepriseView(){
+        $linkedin=$this->getLinkedIn()->get('v1/companies?format=json&is-company-admin=true');
+
+        $linkedinEntreprises = [];
+
+        $myEntreprises = DB::table('entreprises')->where('user_id',Auth::id())->orderBy('updated_at','desc')->paginate(9);
+
+        $max = count($myEntreprises);
+        foreach($linkedin['values'] as $link){
+            $forbidden = false;
+
+            $i = 0;
+            while($i < $max){
+
+                if ($myEntreprises[$i]->linkedin_id != $link['id']){
+                    $forbidden = true;
+                }
+
+                $i++;
+            }
+
+            if($forbidden === false){
+                $linkedinEntreprises[] = $link;
+            }
+        }
+
+        return View('entreprises.profil',['linkedinEntreprises' => $linkedinEntreprises,'myEntreprises' => $myEntreprises]);
     }
 
     public function logout(){

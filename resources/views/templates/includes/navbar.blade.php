@@ -6,7 +6,20 @@
             </a>
         </div>
         <form class="middle">
-            <input type="search" placeholder="Rechercher ..." />
+            <input type="search" id="input-search" placeholder="Rechercher ..." />
+            <div class="search-result" id="search-result">
+                <ul>
+                    <li class="bold">
+                        <a>Entreprises</a>
+                    </li>
+                    <li class="bold">
+                        <a>Communautés</a>
+                    </li>
+                    <li class="bold">
+                        <a>Catégories</a>
+                    </li>
+                </ul>
+            </div>
         </form>
         <div class="right">
             <a href="{{route('login')}}" class="button-linkedin" type="button"></a>

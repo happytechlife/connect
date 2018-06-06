@@ -17,8 +17,8 @@ class TagsLink extends Migration
             $table->integer('id_entreprise');
             $table->integer('id_tag');
 
-            $table->foreign('id_tag')->references('id')->on('tags');
-            $table->foreign('id_entreprise')->references('id')->on('entreprises');
+            //$table->foreign('id_tag')->references('id')->on('tags');
+            //$table->foreign('id_entreprise')->references('id')->on('entreprises');
         });
     }
 

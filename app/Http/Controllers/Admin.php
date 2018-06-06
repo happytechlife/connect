@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class Admin extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('Admin');
+    }
+
     public static function community(){
         $communities = DB::table('community')->paginate(15);
 

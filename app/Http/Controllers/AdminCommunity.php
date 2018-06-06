@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminCommunity extends Controller
 {
+    public function __construct()
+    {
+       // $this->middleware('Admin');
+    }
+
     static public function add(){
         return view('admin.community.add');
     }

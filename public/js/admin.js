@@ -17,6 +17,9 @@ $(document).ready(function(){
     });
 
     $('#input-file-tag').on('change',function(){
+
+        alert('');
+
         let file = $(this)[0].files[0];
         let parent = $(this).parent();
 

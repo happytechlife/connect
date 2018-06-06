@@ -18,7 +18,7 @@
 
 @extends('templates.app')
 
-@section('page_class','home')
+@section('page_class','home-view')
 
 @section('content')
     <section class="bg-dark-blue">
@@ -37,11 +37,22 @@
                 <div class="map" id="map"></div>
             </div>
         </div>
-        <div class="bg-dark-blue">
-            <div class="width-900 padding-col">
-                <h3>Catégories</h3>
+        @if (count($tags) > 0)
+            <div class="bg-white tags-container">
+                <div class="width-900 padding-col">
+                    <h3>Catégories</h3>
+                    <div clas="line">
+                        @foreach($tags as $tag)
+                            <a class="tag" href="{{route('tag.view',['slug' => $tag->slug])}}">
+                                <div class="padding">
+                                    <img alt="Image de la catégorie {{$tag->tag}}" src="{{route('tag.img',['file' => $tag->file_name])}}" class="contain-img" />
+                                </div>
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
             </div>
-        </div>
+        @endif
     </section>
 @endsection
 
@@ -51,11 +62,11 @@
     <script>
         function initMap() {
             let map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 2,
+                zoom: 3,
                 center:
                 @if (count($long) > 0)
                 {
-                    lat: {{ array_sum($long) / count($long) }},
+                    lat: {{ array_sum($lat) / count($lat) }},
                     lng: {{ array_sum($long) / count($long) }}
                 }
                     @else

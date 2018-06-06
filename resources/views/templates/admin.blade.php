@@ -12,6 +12,9 @@
     <body class="@yield('page_class')">
         @include('templates.includes.navbar')
         @yield('content')
+        <script>
+            const REQUEST = '{{route('search')}}';
+        </script>
         <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/app.js')}}"></script>
         <script src="{{asset('js/admin.js')}}"></script>

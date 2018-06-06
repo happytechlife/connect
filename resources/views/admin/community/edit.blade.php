@@ -1,6 +1,6 @@
 @extends('templates.admin')
 
-@section('page_class','community')
+@section('page_class','community-edit')
 
 @section('content')
     <form autocomplete="off" class="container-col-2 break-1200" enctype="multipart/form-data" id="col-container" method="POST" action="{{route('admin.community.edit.request',['slug' => $community->slug])}}">

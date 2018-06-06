@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -136,7 +136,6 @@ return [
     */
 
     'providers' => [
-
         /*
          * Laravel Framework Service Providers...
          */
@@ -194,6 +193,7 @@ return [
 
     'aliases' => [
         'LinkedIn'  => \Artesaos\LinkedIn\Facades\LinkedIn::class,
+        'Admin' => App\Http\Middleware\Admin::class,
 
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,

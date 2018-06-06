@@ -1,13 +1,33 @@
 @php
     $join = [];
     $images = [];
-    $long = [];
-    $lat = [];
+
+
+    $max = count($communities);
+    if ($max > 0){
+
+        $long = [];
+        $lat = [];
+
+        $i = 0;
+
+        while($i<$max){
+            $lat[] = floatval($communities[$i]->latitude);
+            $long[] = floatval($communities[$i]->longitude);
+            $join[] = '{lat: '.$communities[$i]->latitude.', lng: '.$communities[$i]->longitude.'}';
+            $images[] = '"'.str_replace('"','\"',route('community.img',['type' => 'small','file' => $communities[$i]->file_name])).'"';
+            $i++;
+        }
+    }else{
+        $long = [0];
+        $lat = [0];
+    }
+
 @endphp
 
 @extends('templates.app')
 
-@section('page_class','tag')
+@section('page_class','tag-view')
 
 @section('content')
     <section class="container-col-2 break-1200" id="col-container">
@@ -27,6 +47,47 @@
                 </div>
                 <p class="description">{{$tag->description}}</p>
                 <h2>Quelles start-up sont dans cette catégorie ?</h2>
+                <div class="container-col-3 thumb-container">
+
+                    @php
+                        $i = 0;
+                        $max = count($entreprises);
+
+                        while($i< $max){
+                            $col = [
+                                0 => [
+                                    'class' => 'col left',
+                                    'descriptionLength' => 175,
+                                ],
+                                1 => [
+                                    'class' => 'col-2 right',
+                                    'descriptionLength' => 225,
+                                ],
+                                2 => [
+                                    'class' => 'col-3',
+                                    'descriptionLength' => 270,
+                                ]
+                            ];
+
+                            $class = 'col left';
+                            $descriptionLength = 175;
+                    @endphp
+                            <a href="{{route('entreprise.view',['slug' => $entreprises[$i]->slug])}}" class="thumb {{$col[$i % 3]['class']}}">
+                                <div class="content">
+                                    <div class="image-container">
+                                        <img class="cover-img" src="{{route('entreprise.img',['type' => 'big','file' => $entreprises[$i]->file_name])}}" />
+                                    </div>
+                                    <h3>{{$entreprises[$i]->name}}</h3>
+                                    <p class="description">{{substr($entreprises[$i]->description,0,$col[$i % 3]['descriptionLength'])}}</p>
+                                </div>
+                            </a>
+                    @php
+                            $i++;
+                        }
+                    @endphp
+
+
+                </div>
             </div>
         </div>
     </section>
@@ -35,7 +96,7 @@
     <script src="//developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script async defer src="//maps.googleapis.com/maps/api/js?key=AIzaSyCYe_0CiU5xTIZ9f3svSZEaaPUjBb0CHpw&callback=initMap"></script>
     <script>
-        function initMap() {
+        function initMap(){
             let map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 2,
                 center: new google.maps.LatLng(0, 0),
