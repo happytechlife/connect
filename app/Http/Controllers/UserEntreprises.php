@@ -39,7 +39,7 @@ class UserEntreprises extends Controller
         $allow = false;
 
         $i = 0;
-        $max = count($myEntreprises['_total']);
+        $max = $myEntreprises['_total'];
         while ($i < $max) {
 
             if ($myEntreprises['values'][$i]['id'] == $id) {
