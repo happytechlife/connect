@@ -11,7 +11,7 @@ class AdminCommunity extends Controller
 {
     public function __construct()
     {
-       // $this->middleware('Admin');
+        $this->middleware('Admin');
     }
 
     static public function add(){
@@ -27,6 +27,7 @@ class AdminCommunity extends Controller
         $description = strip_tags($request->input('description'),'<strong><a><i>');
 
         $file = $request->file('picture');
+
         if (!$file){
             return redirect()->back()->withInput($request->all());
         }

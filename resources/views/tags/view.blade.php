@@ -25,6 +25,8 @@
 
 @endphp
 
+@yield('title','Entreprises de '.$tag->tag)
+
 @extends('templates.app')
 
 @section('page_class','tag-view')
@@ -43,7 +45,7 @@
             <div class="width-900">
                 <div class="top">
                     <h1 class="h1">{{$tag->tag}}</h1>
-                    <a class="action">Rejoindre</a>
+                    <a class="action" href="{{route('entreprise.profil')}}">Rejoindre</a>
                 </div>
                 <p class="description">{{$tag->description}}</p>
                 <h2>Quelles start-up sont dans cette catégorie ?</h2>

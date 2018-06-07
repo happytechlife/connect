@@ -12,7 +12,7 @@
             <div class="width-900">
                 <div class="top">
                     <h1 class="h1">Communauté de {{$community->name}}</h1>
-                    <a class="action">Rejoindre</a>
+                    <a class="action" href="{{route('entreprise.profil')}}">Rejoindre</a>
                 </div>
                 <p class="description">{{$community->description}}</p>
                 <h2>Qu'y a-t-il à {{$community->name}} ?</h2>

@@ -151,6 +151,11 @@ $(document).ready(function(){
             reader.readAsDataURL(file);
         });
     }
+    if(body.hasClass('entreprise-add') || body.hasClass('entreprise-edit')){
+        $('.textarea').on('blur paste cut keyup',function(){
+           $('#input-description').attr('value',$(this).text());
+        });
+    }
 
     if(body.hasClass('tags-add') || body.hasClass('tags-edit')){
         $('#input-file').on('change',function(){

@@ -38,7 +38,12 @@ class User extends Controller
         if (is_array($user)){
             $this->storeOrLogin($user);
 
-            return redirect()->route('home');
+            $value = session('redirect');
+            if ($value){
+                return redirect()->route('home');
+            }else{
+                return redirect()->route($value);
+            }
         }else{
             return $user;
         }
@@ -46,6 +51,8 @@ class User extends Controller
 
     private function linkedInProfil(){
         $linkedIn= $this->getLinkedIn();
+
+        session(['redirect' => 'home']);
 
         if ($linkedIn->isAuthenticated()) {
             return $linkedIn->get('v1/people/~:(firstName,lastName,email-address,id)');
@@ -82,7 +89,13 @@ class User extends Controller
     }
 
     public function entrepriseView(){
-        $linkedin=$this->getLinkedIn()->get('v1/companies?format=json&is-company-admin=true');
+        $linkedin = $this->getLinkedIn();
+        if (!$linkedin->isAuthenticated()) {
+            session('entreprise.add');
+            return redirect()->route('login');
+        }
+
+        $linkedin=$linkedin->get('v1/companies?format=json&is-company-admin=true');
 
         $linkedinEntreprises = [];
 

@@ -11,7 +11,7 @@ class AdminTags extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('Admin');
+        $this->middleware('Admin');
     }
 
     public function add(){

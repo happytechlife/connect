@@ -1,18 +1,3 @@
-@font-face {
-  font-family: volte-face;
-  src: url(../font/Volte-Regular.otf);
-}
-
-@font-face {
-  font-family: volte-face-light;
-  src: url(../font/Volte-Light.otf);
-}
-
-@font-face {
-  font-family: volte-face-medium;
-  src: url(../font/Volte-Medium.otf);
-}
-
 textarea,
 button {
   border: 0 none transparent;
@@ -165,6 +150,7 @@ nav {
           }
           a {
             font-weight: bold;
+            font-family:"lato",cursive;
           }
         }
         a {
@@ -173,6 +159,7 @@ nav {
           font-size: 15px;
           padding: 3px 0px;
           text-decoration: none;
+          font-family:"roboto",serial;
         }
       }
     }
@@ -203,6 +190,7 @@ nav {
     background-color: #ffffff;
     line-height: 22px;
     font-size: 15px;
+    font-family:"lato",cursive;
     height: 38px;
     text-transform: uppercase;
     color: rgb(75, 75, 75);
@@ -221,6 +209,28 @@ nav {
   }
 }
 
+.button-join{
+  position:relative;
+  overflow:visible;
+  z-index:15;
+  a{
+    position:absolute;
+    top:15px;
+    right:15px;
+    display:inline-block;
+    border-radius:30px;
+    width:auto;
+    height:auto;
+    padding:3px 17px;
+    font-size:15px;
+    font-family:"roboto",serial;
+    line-height:25px;
+    background-color:#ffffff;
+    color:#000000;
+    text-align:center;
+    text-decoration: none;
+  }
+}
 
 .tags-add,
 .tags-edit,
@@ -272,6 +282,7 @@ nav {
         padding:3px 7px;
         line-height:17px;
         font-size:15px;
+        font-family:"lato",cursive;
       }
     }
   }
@@ -288,6 +299,7 @@ nav {
     border:1px solid rgb(0,0,0);
     line-height:16px;
     font-size:15px;
+    font-family:"roboto",serial;
     border-radius:3px;
     padding:7px;
     box-sizing: border-box;
@@ -298,6 +310,7 @@ nav {
   input{
     text-align: left;
     height:30px;
+    font-family:"lato",cursive;
   }
 
   label{
@@ -334,6 +347,7 @@ nav {
       color:rgb(0,0,0);
       text-align:left;
       opacity:0.7;
+      font-family:"lato",cursive;
 
       &.selected{
         opacity:1;
@@ -384,6 +398,7 @@ nav {
         text-align:left;
         font-size:14px;
         cursor:pointer;
+        font-family:"roboto",serial;
       }
       .community-select{
         padding:5px 0 5px 7px;
@@ -430,6 +445,7 @@ nav {
         padding:3px 7px;
         line-height:25px;
         font-size:15px;
+        font-family:"lato",cursive;
         color:rgb(0,0,0);
         height:auto;
         border-radius:3px;
@@ -472,6 +488,7 @@ nav {
       height:auto;
       line-height:20px;
       font-size:19px;
+      font-family:"lato",cursive;
       text-align:center;
       padding:15px 7px;
       box-sizing: border-box;
@@ -535,6 +552,7 @@ nav {
       margin: 0;
       line-height: 30px;
       font-size: 15px;
+      font-family:"lato",cursive;
       background-color: #1c354a;
       border-radius: 30px;
       color: #ffffff;
@@ -594,6 +612,7 @@ nav {
     height: auto;
     line-height: 22px;
     font-size: 20px;
+    font-family:"roboto",cursive;
     color: rgb(75, 75, 75);
     text-align: justify;
     text-align-last: left;
@@ -606,6 +625,7 @@ nav {
     margin-bottom: 20px;
     line-height: 30px;
     font-size: 23px;
+    font-family:"lato",cursive;
     display: block;
     text-align: left;
   }
@@ -627,14 +647,14 @@ nav {
       margin: 0;
       font-size: 25px;
       line-height: 27px;
-      font-family: volte-face-medium;
+      font-family:"lato",cursive;
       letter-spacing: 2px;
       text-align: justify;
       color: rgb(255, 255, 255);
     }
     p {
       font-size: 15px;
-      font-family: volte-face-light;
+      font-family:"roboto",serial;
       line-height: 30px;
       text-align: justify;
       color: rgb(255, 255, 255);
@@ -647,6 +667,7 @@ nav {
 
     h3 {
       color: #212c35 !important;
+      font-family:"lato",cursive;
     }
     .line {
       text-align: center;
@@ -705,6 +726,11 @@ nav {
     .action {
       right: 15px;
     }
+  }
+
+  .button-join{
+    width:900px;
+    max-width:100%;
   }
 }
 
@@ -826,7 +852,8 @@ footer {
       color: #ffffff;
       text-decoration: none;
       text-align: left;
-      font: 27px "volte-face", sans-serif;
+      font-size: 27px;
+      font-family:"lato",cursive;
       &.center {
         text-align: center;
       }
@@ -834,11 +861,10 @@ footer {
     p {
       text-align: justify;
       text-align-last: left;
-      font-family: "Open Sans", sans-serif;
+      font-family:"roboto",serial;
       color: rgb(255, 255, 255);
       line-height: 17px;
       font-size: 14px;
-      font-family: volte-face;
     }
 
     .social-logo {
@@ -907,6 +933,7 @@ footer {
       line-height: 22px;
       font-size: 18px;
       color: #f6decc;
+      font-family:"lato",cursive;
       font-weight: lighter;
       text-align: left;
       text-transform: uppercase;
@@ -919,6 +946,7 @@ footer {
       margin: 0;
       line-height: 16px;
       font-size: 15px;
+      font-family:"roboto",cursive;
       color: rgb(0, 0, 0);
       font-weight: lighter;
       a {
@@ -968,6 +996,7 @@ footer {
         padding:3px 7px;
         line-height:17px;
         font-size:15px;
+        font-family:"lato",cursive;
       }
     }
   }
@@ -1000,12 +1029,14 @@ footer {
     label{
       line-height: 22px;
       font-size: 20px;
+      font-family:"roboto",serial;
       color: rgb(75, 75, 75);
       width:120px;
       display:inline-block;
       text-align:left;
     }
     input{
+      font-family:"roboto",serial;
       line-height: 22px;
       font-size: 20px;
       color: rgb(75, 75, 75);
@@ -1045,6 +1076,7 @@ footer {
         padding:3px 7px;
         line-height:17px;
         font-size:15px;
+        font-family:"lato",cursive;
       }
     }
   }

@@ -1,3 +1,8 @@
+@section('title',$entreprise->name)
+@section('description',substr($entreprise->description,0,min(strlen($entreprise->description),170)))
+@section('tags',$tag)
+@section('img',route('entreprise.img',['type' => 'big','file' => $entreprise->file_name]))
+
 @extends('templates.app')
 
 @section('page_class','entreprise-view')
@@ -12,7 +17,7 @@
             <div class="width-900">
                 <div class="top">
                     <h1 class="h1">{{$entreprise->name}}</h1>
-                    <a class="action">Rejoindre</a>
+                    <a class="action" href="{{route('entreprise.profil')}}">Rejoindre</a>
                 </div>
                 <p class="description">{{$entreprise->description}}</p>
             </div>

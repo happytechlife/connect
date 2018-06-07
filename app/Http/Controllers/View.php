@@ -35,7 +35,24 @@ class View extends Controller
             return null;
         }
 
-        return View('entreprise.view',['entreprise' => $entreprise]);
+        $tagsBDD = DB::table('tags')
+            ->whereExists(function ($query) use ($entreprise) {
+                $query->select(
+                    DB::raw(1))
+                    ->from('tags_link')
+                    ->where('id_entreprise', $entreprise->id);
+            })->get();
+
+        $i = 0;
+        $max = count($tagsBDD);
+        $tags = [];
+        while($i < $max){
+            $tags[] = $tagsBDD[$i]->tag;
+
+            $i++;
+        }
+
+        return View('entreprise.view',['entreprise' => $entreprise,'tag' => join(',',$tags)]);
     }
 
     public static function tag($slug){

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -26,8 +27,12 @@ class UserEntreprises extends Controller
 
     public function add($id)
     {
-
         $linkedin = $this->getLinkedIn();
+        if (!$linkedin->isAuthenticated()) {
+            session('entreprise.add');
+            return redirect()->route('login');
+        }
+
 
         $myEntreprises = $linkedin->get('v1/companies?format=json&is-company-admin=true');
 
@@ -151,6 +156,11 @@ class UserEntreprises extends Controller
 
     public function edit($slug)
     {
+        $linkedin = $this->getLinkedIn();
+        if (!$linkedin->isAuthenticated()) {
+            session('entreprise.add');
+            return redirect()->route('login');
+        }
         $entreprise = DB::table('entreprises')->where('slug', $slug)->where('user_id', Auth::id())->first();
 
         if (!$entreprise) {
@@ -261,10 +271,15 @@ class UserEntreprises extends Controller
 
     public function addStore($id, Request $request)
     {
+        $linkedin = $this->getLinkedIn();
+        if (!$linkedin->isAuthenticated()) {
+            session('entreprise.add');
+            return redirect()->route('login');
+        }
 
         $validator = Validator::make($request->all(), [
             'description' => 'required',
-            'name' => 'required|min:10|max:60',
+            'name' => 'required|min:5|max:150',
             'email' => 'email|required',
             'tags' => 'nullable',
             'community' => 'integer',
@@ -287,8 +302,6 @@ class UserEntreprises extends Controller
 
         $slugify = new Slugify();
         $slug = $slugify->slugify($name, '-');
-
-        $linkedin = $this->getLinkedIn();
 
         $myEntreprises = $linkedin->get('v1/companies?format=json&is-company-admin=true');
 
@@ -359,6 +372,12 @@ class UserEntreprises extends Controller
 
     public function editStore($slug, Request $request)
     {
+        $linkedin = $this->getLinkedIn();
+        if (!$linkedin->isAuthenticated()) {
+            session('entreprise.add');
+            return redirect()->route('login');
+        }
+
         $entreprise = DB::table('entreprises')->where('slug', $slug)->where('user_id', Auth::id())->first();
 
         if (!$entreprise) {
@@ -369,7 +388,7 @@ class UserEntreprises extends Controller
 
         $validator = Validator::make($request->all(), [
             'description' => 'required',
-            'name' => 'required|min:10|max:60',
+            'name' => 'required|min:5|max:150',
             'email' => 'email|required',
             'tags' => 'nullable',
             'community' => 'integer',
@@ -391,8 +410,6 @@ class UserEntreprises extends Controller
 
         $slugify = new Slugify();
         $newSlug = $slugify->slugify($name, '-');
-
-        $linkedin = $this->getLinkedIn();
 
         $myEntreprises = $linkedin->get('v1/companies?format=json&is-company-admin=true');
 

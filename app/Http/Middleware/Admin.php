@@ -17,8 +17,10 @@ class Admin
     public function handle($request, Closure $next)
     {
         $user = $request->user();
-        if (!$user){
-            return Redirect()->back();
+
+        if (!$user or $user->admin == 0){
+            abort(403);
+            return null;
         }
 
         return $next($request);

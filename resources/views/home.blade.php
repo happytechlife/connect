@@ -20,21 +20,24 @@
 
 @section('page_class','home-view')
 
+@yield('title','Home')
+
 @section('content')
     <section class="bg-dark-blue">
         <div class="container-col-4 break-1000">
             <div class="col">
                 <div class="width-600 padding-col">
                     <h1>Pourquoi HappyTech ?</h1>
-                    <p>Isdem diebus Apollinaris Domitiani gener, paulo ante agens palatii Caesaris curam, ad Mesopotamiam missus a socero per militares numeros immodice scrutabatur, an quaedam altiora meditantis iam Galli secreta susceperint scripta, qui conpertis Antiochiae gestis per minorem Armeniam lapsus Constantinopolim petit exindeque per protectores retractus artissime tenebatur.Antiochiae gestis per minorem Armeniam lapsus Constantinopolim petit exindeque per protectores retractus artissime tenebatur</p>
-                    <p>Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria, et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.</p>
+                    <p>L’entreprise HappyTech souhaite réunir des entrepreneurs, startups, investisseurs et responsables du bien-être qui œuvrent au quotidien pour faire de l’entreprise un lieu où chacun peut s’épanouir et se développer. Le bien-être au travail est reconnu comme un facteur de productivité, de loyauté mais aussi de créativité.</p>
+                    <p>En effet, une quinzaine de startups unissent leurs forces au sein du label Happy Tech, qui vise à fédérer et à promouvoir les innovations pour lutter contre le mal-être au travail, cause de nombreux burnout et dépressions. C’est donc un enjeu sociétal et économique majeur.</p>
                 </div>
             </div>
 
-
-
             <div class="col-3" id="container-map">
                 <div class="map" id="map"></div>
+                <div class="button-join">
+                    <a href="{{route('entreprise.profil')}}">rejoindre</a>
+                </div>
             </div>
         </div>
         @if (count($tags) > 0)
